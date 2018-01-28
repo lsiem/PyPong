@@ -52,13 +52,13 @@ cmfX = 250
 cmfY = 250
 
 #Main Loop
-loop = False
+cancel = False
 
-while not loop:
+while not cancel:
     pressed_down = False
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
-            loop = True
+            cancel = True
             pygame.quit()
 
         elif event.type == pygame.KEYDOWN:
