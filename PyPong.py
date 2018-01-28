@@ -18,6 +18,9 @@ width, height = resolution
 screen = pygame.display.set_mode(resolution)
 pygame.display.set_caption("PyPong 1.0")
 
+#Font
+score_font = pygame.font.SysFont("Clear Sans Regular", 30)
+
 #Rect
 left_rect_posX  = 50
 left_rect_posY  = 50
@@ -40,6 +43,10 @@ circle_start_posY = int(height / 2)
 
 circle_posY = circle_start_posY
 circle_posX = circle_start_posX
+
+#Score
+score_left  = 0
+score_right = 0
 
 #Input map
 inputMap = [False, False, False, False]
@@ -125,7 +132,13 @@ while not cancel:
             cmfX = -cmfX
 
     # Endgame
-    if circle_posX > width or circle_posX < 0:
+    if circle_posX > width:
+	score_left += 1
+        circle_posX = circle_start_posX
+        circle_posY = circle_start_posY
+
+    if circle_posX < 0:
+	score_right += 1
         circle_posX = circle_start_posX
         circle_posY = circle_start_posY
 
@@ -136,6 +149,9 @@ while not cancel:
     pygame.draw.rect(   screen, BLACK, [left_rect_posX, left_rect_posY, 10, left_rect_height])
     pygame.draw.rect(   screen, BLACK, [right_rect_posX, right_rect_posY, 10, right_rect_height])
     pygame.draw.rect(   screen, BLACK, [circle_posX, circle_posY, 20, 20])
+
+    screen.blit(score_font.render(str(score_left), True, BLACK), (width / 4, 50))
+    screen.blit(score_font.render(str(score_right), True, BLACK), (width / 1.25, 50))
 
     #Update screen
     pygame.display.flip()
