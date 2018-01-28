@@ -137,8 +137,6 @@ while not cancel:
     pygame.draw.rect(   screen, BLACK, [right_rect_posX, right_rect_posY, 10, right_rect_height])
     pygame.draw.rect(   screen, BLACK, [circle_posX, circle_posY, 20, 20])
 
-    #Animation
-
     #Update screen
     pygame.display.flip()
 
