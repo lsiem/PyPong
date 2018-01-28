@@ -48,8 +48,8 @@ inputMap = [False, False, False, False]
 rmf = 10
 
 #Circle movement factor
-cmfX = 250
-cmfY = 250
+cmfX = 450
+cmfY = 450
 
 #Main Loop
 cancel = False
@@ -110,7 +110,7 @@ while not cancel:
         if inputMap[3]: left_rect_posY  -= rmf
 
     #Circle movement
-    circle_time_passed = clock.tick(30)
+    circle_time_passed = clock.tick(60)
     circle_time_sec = circle_time_passed / 1000.0
     circle_posX += cmfX * circle_time_sec
     circle_posY += cmfY * circle_time_sec
