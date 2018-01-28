@@ -61,7 +61,7 @@ while not cancel:
             cancel = True
             pygame.quit()
 
-        elif event.type == pygame.KEYDOWN:
+        if event.type == pygame.KEYDOWN:
             if event.key == pygame.K_DOWN:
                 inputMap[0] = True
             if event.key == pygame.K_UP:
@@ -71,7 +71,7 @@ while not cancel:
             if event.key == pygame.K_w:
                 inputMap[3] = True
 
-        elif event.type == pygame.KEYUP:
+        if event.type == pygame.KEYUP:
             if event.key == pygame.K_DOWN:
                 inputMap[0] = False
             if event.key == pygame.K_UP:
