@@ -16,7 +16,7 @@ width, height = resolution
 
 #Screen
 screen = pygame.display.set_mode(resolution)
-pygame.display.set_caption("PyPong 1.0")
+pygame.display.set_caption("PyPong 2.0")
 
 #Font
 score_font = pygame.font.SysFont("Clear Sans Regular", 30)
