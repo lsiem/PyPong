@@ -7,8 +7,9 @@ clock = pygame.time.Clock()
 
 
 #Color
-WHITE = (255, 255, 255)
-BLACK = (0, 0, 0)
+RED   = (255, 0, 0)
+GREEN = (0, 255, 0)
+BLUE  = (0, 0, 255)
 
 #Resolution
 resolution    = (1280, 720)
@@ -143,15 +144,15 @@ while not cancel:
         circle_posY = circle_start_posY
 
     #Clear screen
-    screen.fill(WHITE)
+    screen.fill(GREEN)
 
     #Drawing code
-    pygame.draw.rect(   screen, BLACK, [left_rect_posX, left_rect_posY, 10, left_rect_height])
-    pygame.draw.rect(   screen, BLACK, [right_rect_posX, right_rect_posY, 10, right_rect_height])
-    pygame.draw.rect(   screen, BLACK, [circle_posX, circle_posY, 20, 20])
+    pygame.draw.rect(   screen, BLUE, [left_rect_posX, left_rect_posY, 10, left_rect_height])
+    pygame.draw.rect(   screen, BLUE, [right_rect_posX, right_rect_posY, 10, right_rect_height])
+    pygame.draw.rect(   screen, RED, [circle_posX, circle_posY, 20, 20])
 
-    screen.blit(score_font.render(str(score_left), True, BLACK), (width / 4, 50))
-    screen.blit(score_font.render(str(score_right), True, BLACK), (width / 1.25, 50))
+    screen.blit(score_font.render(str(score_left), True, BLUE), (width / 4, 50))
+    screen.blit(score_font.render(str(score_right), True, BLUE), (width / 1.25, 50))
 
     #Update screen
     pygame.display.flip()
