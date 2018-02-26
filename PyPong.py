@@ -12,11 +12,11 @@ GREEN = (0, 255, 0)
 BLUE  = (0, 0, 255)
 
 #Resolution
-resolution    = (1280, 720)
-width, height = resolution
+RESOLUTION    = (1280, 720)
+WIDTH, HEIGHT = RESOLUTION
 
 #Screen
-screen = pygame.display.set_mode(resolution)
+screen = pygame.display.set_mode(RESOLUTION)
 pygame.display.set_caption("PyPong 2.0")
 
 #Font
@@ -29,8 +29,8 @@ left_rect_posY  = 50
 right_rect_posX = 1220
 right_rect_posY = 50
 
-left_rect_height   = 150
-right_rect_height  = 150
+left_rect_HEIGHT   = 150
+right_rect_HEIGHT  = 150
 
 
 left_rect_can_move_upwards    = True
@@ -39,8 +39,8 @@ right_rect_can_move_upwards   = True
 right_rect_can_move_downwards = True
 
 #Circle
-circle_start_posX = int(width / 2)
-circle_start_posY = int(height / 2)
+circle_start_posX = int(WIDTH / 2)
+circle_start_posY = int(HEIGHT / 2)
 
 circle_posY = circle_start_posY
 circle_posX = circle_start_posX
@@ -90,19 +90,19 @@ while not cancel:
                 inputMap[3] = False
 
     #Game logic
-    if right_rect_posY < 0 - right_rect_height / 2:
+    if right_rect_posY < 0 - right_rect_HEIGHT / 2:
         right_rect_can_move_upwards   = False
     else:
         right_rect_can_move_upwards   = True
-    if right_rect_posY > height - right_rect_height / 2:
+    if right_rect_posY > HEIGHT - right_rect_HEIGHT / 2:
         right_rect_can_move_downwards = False
     else:
         right_rect_can_move_downwards = True
-    if left_rect_posY < 0 - left_rect_height / 2:
+    if left_rect_posY < 0 - left_rect_HEIGHT / 2:
         left_rect_can_move_upwards    = False
     else:
         left_rect_can_move_upwards    = True
-    if left_rect_posY > height - left_rect_height / 2:
+    if left_rect_posY > HEIGHT - left_rect_HEIGHT / 2:
         left_rect_can_move_downwards  = False
     else:
         left_rect_can_move_downwards  = True
@@ -124,16 +124,16 @@ while not cancel:
     circle_posY += cmfY * circle_time_sec
 
     #Circle collision
-    if circle_posY > height or circle_posY < 0:
+    if circle_posY > HEIGHT or circle_posY < 0:
         cmfY = -cmfY
     if circle_posX > right_rect_posX or circle_posX < left_rect_posX:
-        if circle_posY > right_rect_posY and circle_posY < right_rect_posY + right_rect_height:
+        if circle_posY > right_rect_posY and circle_posY < right_rect_posY + right_rect_HEIGHT:
             cmfX = -cmfX
-        if circle_posY > left_rect_posY and circle_posY < left_rect_posY + left_rect_height:
+        if circle_posY > left_rect_posY and circle_posY < left_rect_posY + left_rect_HEIGHT:
             cmfX = -cmfX
 
     # Endgame
-    if circle_posX > width:
+    if circle_posX > WIDTH:
 	score_left += 1
         circle_posX = circle_start_posX
         circle_posY = circle_start_posY
@@ -147,12 +147,12 @@ while not cancel:
     screen.fill(GREEN)
 
     #Drawing code
-    pygame.draw.rect(   screen, BLUE, [left_rect_posX, left_rect_posY, 10, left_rect_height])
-    pygame.draw.rect(   screen, BLUE, [right_rect_posX, right_rect_posY, 10, right_rect_height])
+    pygame.draw.rect(   screen, BLUE, [left_rect_posX, left_rect_posY, 10, left_rect_HEIGHT])
+    pygame.draw.rect(   screen, BLUE, [right_rect_posX, right_rect_posY, 10, right_rect_HEIGHT])
     pygame.draw.rect(   screen, RED, [circle_posX, circle_posY, 20, 20])
 
-    screen.blit(score_font.render(str(score_left), True, BLUE), (width / 4, 50))
-    screen.blit(score_font.render(str(score_right), True, BLUE), (width / 1.25, 50))
+    screen.blit(score_font.render(str(score_left), True, BLUE), (WIDTH / 4, 50))
+    screen.blit(score_font.render(str(score_right), True, BLUE), (WIDTH / 1.25, 50))
 
     #Update screen
     pygame.display.flip()
